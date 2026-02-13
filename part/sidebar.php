@@ -26,7 +26,7 @@
                 <a href="../dashboard-admin/profil.php">profil</a>
             </div>
             <div class="tambah">
-                <a href="../dashboard-admin/tambah-produk.php">Tambah produk</a>
+                <a href="../dashboard-admin/produk.php">Produk</a>
             </div>
             <div class="logout">
             <a href="">logout</a>
