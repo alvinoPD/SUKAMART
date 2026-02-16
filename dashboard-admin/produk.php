@@ -10,7 +10,7 @@ include '../part/nav.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../style/tambah-produk.css">
+    <link rel="stylesheet" href="../style/produk.css">
 </head>
 <body>
     <div class="text">
