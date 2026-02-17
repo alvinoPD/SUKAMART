@@ -31,6 +31,21 @@ include '../part/nav.php';
             <input type = "text" class = "deskripsi" name = "deskripsi" id ="deskripsi" placeholder = "Masukan deskripsi produk">
         </div>
             <br>
+        <div class = "stock">
+            <label class = "stock">Stock barang</label><br>
+            <input type = "text" class = "stock" name = "stock" id ="stock" placeholder = "Masukan jumlah stock">
+        </div>
+            <br>
+        <div class = "kategori-id">
+            <label class = "kategori-id">Kategori id</label><br>
+            <input type = "text" class = "kategori-id" name = "kategoriId" id ="kategoriId" placeholder = "Masukan deskripsi produk">
+        </div>
+            <br>
+        <div class = "Kategori-nama">
+            <label class = "Kategori-nama">Kategori nama</label><br>
+            <input type = "text" class = "Kategori-nama" name ="kategoriNama" id ="kategoriNama" placeholder = "Masukan deskripsi produk">
+        </div>
+            <br>
         <button type = "submit" name = "submit">Upload</button>
     </form>
 
