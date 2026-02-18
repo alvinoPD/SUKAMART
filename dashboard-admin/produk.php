@@ -17,7 +17,11 @@ include '../part/nav.php';
         <h3>Produk anda</h3>
 
     </div>
-
+    <div>
+        <?php
+        include '../crud/read.php';
+        ?>
+    </div>
     <div class="botton-tambah">
         <button><a href="../crud/tambah.php"><h1>+</h1></a></button>
     </div>

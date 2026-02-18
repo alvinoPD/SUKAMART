@@ -1,6 +1,6 @@
 <?php
 include '../database/config.php';
-include '../part/nav.php';
+
 
 $query = mysqli_query($db,"SELECT * FROM produk");
 ?>
@@ -23,6 +23,14 @@ $query = mysqli_query($db,"SELECT * FROM produk");
         <p>Rp <?= number_format($data['harga']); ?></p>
         <p><?= $data['deskripsi']; ?></p>
         <p>Stock: <?= $data['stok']; ?></p>
+        <button class="edit">
+    <a href="../crud/edit.php?id=<?= $data['id']; ?>">edit</a>
+</button>
+
+<button class="hapus">
+    <a href="hapus.php?id=<?= $data['id']; ?>">hapus</a>
+</button>
+
     </div>
 
 <?php } ?>
