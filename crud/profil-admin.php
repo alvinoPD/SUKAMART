@@ -1,6 +1,29 @@
 <?php
 include '../database/config.php';
 
+$query = mysqli_query($db, "SELECT SUM(stok) AS total_stock FROM produk");
+$data = mysqli_fetch_assoc($query);
+$stock = $data['total_stock'];
+
+$queryPesanan = mysqli_query($db,"SELECT
+        (SELECT COUNT(*) FROM pesanan_tunggal) +
+        (SELECT COUNT(*) FROM pesanan_ganda) AS jumlahPesanan"
+);
+
+$dataPesanan = mysqli_fetch_assoc($queryPesanan);
+$totalPesanan = $dataPesanan['jumlahPesanan'];
+
+$queryPembayaran = mysqli_query($db, 
+    "SELECT COUNT(id_pembarayan	) AS pendapatan FROM pembayaran"
+    
+);
+if (!$queryPembayaran) {
+   die("Query Error: " . mysqli_error($db));
+}
+$dataPembayaran = mysqli_fetch_assoc($queryPembayaran);
+$totalPendapatan = $dataPembayaran['pendapatan'];
+
+
 
 ?>
 
@@ -14,15 +37,15 @@ include '../database/config.php';
 <body>
     <div class="pesanan">
         <h4>Total pesanan </h4>
-        <p><?php echo include '../part/total-pesanan.php';?></p>
+        <p><?php echo $totalPesanan;?></p>
     </div>
     <div class="pesanan">
-        <h4>Total pesanan </h4>
-        <p><?php echo include '../part/total-pesanan.php';?></p>
+        <h4>Total pendapatan </h4>
+        <p><?php echo $totalPendapatan;?></p>
     </div>
     <div class="stock">
         <h4>stock </h4>
-        <p><?php echo include '../part/total-stock.php';?></p>
+        <p><?php echo $stock;?></p>
     </div>
 
 </body>
