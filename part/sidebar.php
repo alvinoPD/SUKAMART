@@ -20,7 +20,7 @@
         </div>
         <div class="offcanvas-body">
         <div class="beranda">
-                <a href="../dashboard-admin/index.php">beranda</a>
+                <a href="../dashboard-admin/beranda-admin.php">beranda</a>
             </div>
             <div class="profil">
                 <a href="../dashboard-admin/profil.php">profil</a>

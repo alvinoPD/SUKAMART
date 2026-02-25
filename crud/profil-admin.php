@@ -36,18 +36,20 @@ $totalPendapatan = $dataPembayaran['pendapatan'];
     <link rel = "stylesheet" href = "../style/profil-admin.css" >
 </head>
 <body>
-    <div class="pesanan">
-        <h4>Total pesanan </h4>
-        <p><?php echo $totalPesanan;?></p>
+    <div class = "atas">
+        
+        <div class="pesanan">
+            <h4>Total pesanan </h4>
+            <p><?php echo $totalPesanan;?></p>
+        </div>
+        <div class="pendapatan">
+            <h4>Total pendapatan </h4>
+            <p><?php echo $totalPendapatan;?></p>
+        </div>
+        <div class="stock">
+            <h4>stock </h4>
+            <p><?php echo $stock;?></p>
+        </div>
     </div>
-    <div class="pesanan">
-        <h4>Total pendapatan </h4>
-        <p><?php echo $totalPendapatan;?></p>
-    </div>
-    <div class="stock">
-        <h4>stock </h4>
-        <p><?php echo $stock;?></p>
-    </div>
-
 </body>
 </html>
