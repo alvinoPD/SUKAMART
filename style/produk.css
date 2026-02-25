@@ -1,0 +1,33 @@
+.text{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 30px;
+    margin-left:10px;
+    margin-bottom:50px;
+
+}
+.botton-tambah {
+   
+    border-radius:50% ;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    background-color: blue;
+    margin-left: 20px;
+    margin-top: 5px;
+    border: solid blue 2px;
+    text-align: right;
+    font-size: 10px;
+    /* position: fixed;
+    z-index: 1000; */
+}
+
+.botton-tambah :hover{
+   /* font-size: 50px;*/
+   transition:0.3s ; 
+   color: white;
+}
+
+a {
+    text-decoration: none;
+}
