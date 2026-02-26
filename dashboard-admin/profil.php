@@ -14,6 +14,7 @@ include '../database/config.php';
     <link rel = "stylesheet" href = "../style/profil-admin.css" >
 </head>
 <body>
+    <h1>LOGO</h1>
     <?php
     include '../crud/profil-admin.php';
     ?>
