@@ -1,0 +1,98 @@
+/* Reset sederhana */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f4f6f9;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Container jadi GRID */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+/* Card Produk */
+.produk {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s ease-in-out;
+}
+
+.produk:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Gambar */
+.produk img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Judul */
+.produk h3 {
+    font-size: 15px;
+    margin: 10px 0 5px;
+    height: 38px;
+    overflow: hidden;
+    color: #333;
+}
+
+/* Paragraf */
+.produk p {
+    font-size: 13px;
+    margin: 3px 0;
+    color: #666;
+}
+
+/* Harga lebih menonjol */
+.produk p:nth-of-type(1) {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Tombol */
+.edit, .hapus {
+    margin-top: 8px;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.edit {
+    background: #3498db;
+}
+
+.edit:hover {
+    background: #2980b9;
+}
+
+.hapus {
+    background: #e74c3c;
+}
+
+.hapus:hover {
+    background: #c0392b;
+}
+
+.edit a, .hapus a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
