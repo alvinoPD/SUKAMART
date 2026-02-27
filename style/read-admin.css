@@ -29,10 +29,10 @@ body {
     transition: 0.2s ease-in-out;
 }
 
-.produk:hover {
+/* .produk:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
+} */
 
 /* Gambar */
 .produk img {
@@ -76,11 +76,11 @@ body {
 }
 
 .edit {
-    background: #3498db;
+    background: #10fffb;
 }
 
 .edit:hover {
-    background: #2980b9;
+    background: #00aba8;
 }
 
 .hapus {

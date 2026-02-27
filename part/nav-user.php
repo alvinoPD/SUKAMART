@@ -22,7 +22,7 @@
 
 <nav class="navbar bg-primary">
   <div class="container-fluid">
-    <?php include 'sidebar.php';?>
+    <?php include 'sidebar-user.php';?>
     
   </div>
   <div>

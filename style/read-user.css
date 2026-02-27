@@ -29,10 +29,10 @@ body {
     transition: 0.2s ease-in-out;
 }
 
-.produk:hover {
+/* .produk:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
+} */
 
 /* Gambar */
 .produk img {
@@ -62,7 +62,7 @@ body {
 .produk p:nth-of-type(1) {
     font-size: 16px;
     font-weight: bold;
-    color: #ee4d2d; /* warna khas marketplace */
+    color: #10fffb; /* warna khas marketplace */
 }
 
 /* Tombol beli */
@@ -71,13 +71,13 @@ body {
     padding: 8px;
     border: none;
     border-radius: 6px;
-    background: #ee4d2d;
+    background: #10fffb;
     cursor: pointer;
     transition: 0.2s;
 }
 
 .beli:hover {
-    background: #d84325;
+    background: #00aba8;
 }
 
 .beli a {
