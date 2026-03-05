@@ -13,15 +13,16 @@
 </head>
 <body>
     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-list"></i></button>
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas offcanvas-start bg-dark" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">sukamart</h5>
+        <h5 class="offcanvas-title text-light" id="offcanvasWithBothOptionsLabel">sukamart</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
         <div class="beranda">
                 <a href="../dashboard-admin/beranda-admin.php">beranda</a>
             </div>
+            <hr>
             <div class="profil">
                 <a href="../dashboard-admin/profil.php">profil</a>
             </div>
