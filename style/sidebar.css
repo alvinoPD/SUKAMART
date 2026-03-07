@@ -1,62 +1,79 @@
-
-
-.beranda a {
-    text-decoration: none;
-    color: #fff;
-}
-.profil a {
-    text-decoration: none;
-    color: #fff;
-}
-.tambah a {
-    text-decoration: none;
-    color: #fff;
-}
-.logout a {
-    text-decoration: none;
-    color: #fff;
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
-.logout{
-    margin-top: 290px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    padding-left: 5px;
-    border-bottom: 1px solid #fff;
+#page{
+    display:flex;
 }
 
-.tambah{
-    margin-top: 10px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    padding-left: 5px;
-    border-bottom: 1px solid #fff;
-
-}
-.profil{
-    margin-top: 5px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    padding-left: 5px;
-    border-bottom: 1px solid #fff;
-
+/* sidebar */
+#sidebar{
+    width:250px;
+    height:100vh;
+    background:#1e1e2f;
+    color:white;
+    padding:20px;
 }
 
-.beranda{
-    margin-top: 20px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-   border-bottom: 1px solid #fff;
+#sidebar h2{
+    text-align:center;
 }
 
- hr {
-    border: 1px solid #fff;
+#sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding-top:2px;
+    padding-bottom:15px;
+    padding-left:25px;
+    padding-right:12px;
+    margin-top:2px;
+    border-radius:6px;
+    
+}
+
+#sidebar a:hover{
+    background:#333;
+}
+
+hr{
+    width: 100%;
+    border: 1px solid black;
+}
+
+/* main */
+ #main{
+    flex:1;
+    /* padding:30px; */
 } 
 
-/* .offcanvas-body{
-    background-color: #000562;
+h1{
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
-.offcanvas-header{
-    background-color: #000562;
-} */
+p{
+    padding-top:12px;
+    padding-bottom:0px;
+    padding-left:6px;
+    padding-right:4px;
+    margin-top:10px;
+    border-radius:6px;
+    font-size: 12px;
+}
+
+.home{
+    display: flex;
+}
+ #icon{
+    padding-top:4px;
+    padding-bottom:0px;
+    padding-left:4px;
+    padding-right:2px;
+    margin-top:10px;
+    border-radius:6px;
+    font-size: 12px;
+    
+ }

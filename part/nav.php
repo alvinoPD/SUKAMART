@@ -23,7 +23,7 @@
 <nav class="navbar bg-primary">
   <div class="container-fluid">
     <!-- <p>Logo</p> -->
-    <a class="navbar-brand"><?php include 'sidebar.php';?></a>
+    <a class="navbar-brand"><?php include 'sidebar-user.php';?></a>
     <form class="d-flex" role="search">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
       <button class="btn btn-outline-success" type="submit">Search</button>
