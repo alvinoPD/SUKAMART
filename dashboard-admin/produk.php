@@ -1,6 +1,6 @@
 <?php
 include '../database/config.php';
-include '../part/nav.php';
+
 
 ?> 
 
@@ -13,18 +13,24 @@ include '../part/nav.php';
     <link rel="stylesheet" href="../style/produk.css">
 </head>
 <body>
-    <div class="text">
-        <h3>Produk anda</h3>
-
-    </div>
-    <div>
+    <div id="flex-container">
         <?php
-        include '../crud/read-admin.php';
+        include '../part/sidebar.php';
         ?>
-    </div>
-    <div class="tambah">
-        <button class= "botton-tambah"><a href="../crud/tambah.php"><h1>+</h1></a></button>
-    </div>
+        <main class = "main">
+            <div class="text">
+                <h3>Produk anda</h3>
 
+            </div>
+            <div class ="isi">
+                <?php
+                include '../crud/read-admin.php';
+                ?>
+            </div>
+            <div class="tambah">
+                <button class= "botton-tambah"><a href="../crud/tambah.php"><h1>+</h1></a></button>
+            </div>
+        </main>
+    </div>
 </body>
 </html>

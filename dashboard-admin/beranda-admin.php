@@ -1,6 +1,6 @@
 <?php
-include '../part/nav.php';
 include '../database/config.php';
+
 ?>
 
 
@@ -15,8 +15,16 @@ include '../database/config.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <?php
-     include '../crud/read-user.php';
-     ?>
+    <div id="flex-container">
+        <?php
+        include '../part/sidebar.php';
+        ?>
+        <main class="main">
+            <?php
+            
+            include '../crud/read-user.php';
+            ?>
+        </main>
+    </div>
 </body>
 </html>
