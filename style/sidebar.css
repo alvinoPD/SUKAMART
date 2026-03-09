@@ -9,20 +9,16 @@ body{
 
 #flex-container{
     display: flex;
+
 }
-#flex-container .sidebar{
+#sidebar{
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     overflow-y: auto;
     z-index: 1000;
-}
-
-/* sidebar */
-#sidebar{
     width:250px;
-    height:100vh;
     background:#1e1e2f;
     color:white;
     padding-bottom:20px;
@@ -60,11 +56,12 @@ hr{
 /* main */
  #main{
     flex:1;
+    margin-left: 250px;
     /* padding:30px; */
 } 
 
 h1{
-    padding-top: 30px;
+    padding-top: 10px;
     padding-left: 30px;
     padding-right: 30px;
 }

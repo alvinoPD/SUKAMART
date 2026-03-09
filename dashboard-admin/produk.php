@@ -5,11 +5,12 @@ include '../database/config.php';
 ?> 
 
 <!DOCTYPE html>
-<html lan g="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../style/sidebar.css">
     <link rel="stylesheet" href="../style/produk.css">
 </head>
 <body>
@@ -18,8 +19,9 @@ include '../database/config.php';
         include '../part/sidebar.php';
         ?>
         <main class = "main">
-            <div class="text">
-                <h3>Produk anda</h3>
+            <div class="text1">
+                <h3 class="text">Produk anda</h3>
+                <hr>
 
             </div>
             <div class ="isi">
