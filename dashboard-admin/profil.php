@@ -37,6 +37,12 @@ include '../database/config.php';
     include '../crud/profil-admin.php';
     ?>
 </div>
+
+<div id = "chart">
+    <?php
+    include 'chart.php';
+    ?>
+</div>
 </main>
 
 </div>

@@ -38,7 +38,7 @@ new Chart(ctx, {
         labels: ['Jan', 'Feb', 'Mar', 'Apr'],
         datasets: [{
             label: 'Penjualan',
-            data: [20, 20, 15, 30]
+            data: [10, 20, 15, 30]
         }]
     }
 });
