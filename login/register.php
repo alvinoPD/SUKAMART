@@ -8,7 +8,7 @@ $error = '';
 $success = '';
 
 if(isset($_POST['register'])){
-    $username = $_POST['username'];
+    $username = $_POST['nama'];
     $password = $_POST['password'];
 
     if(empty($username) || empty($password)){
