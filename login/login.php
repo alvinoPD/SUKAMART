@@ -1,5 +1,5 @@
 <?php 
-include 'config.php'; 
+include '../database/config.php'; 
 
 // Redirect dihilangkan sesuai permintaan user, 
 // agar tetap bisa membuka halaman login meskipun sudah login.
@@ -15,7 +15,7 @@ if(isset($_POST['login'])){
         $error = "Username dan password harus diisi!";
     } else {
         // Prepared statement untuk mencegah SQL injection
-        $stmt = $conn->prepare("SELECT * FROM user WHERE username = ?");
+        $stmt = $db->prepare("SELECT * FROM users WHERE nama = ?");
         if($stmt){
             $stmt->bind_param("s", $username);
             $stmt->execute();
