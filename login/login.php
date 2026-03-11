@@ -15,7 +15,7 @@ if(isset($_POST['login'])){
         $error = "Username dan password harus diisi!";
     } else {
         // Prepared statement untuk mencegah SQL injection
-        $stmt = $db->prepare("SELECT * FROM users WHERE nama = ?");
+        $stmt = $db->prepare("SELECT * FROM users WHERE nama  = ?");
         if($stmt){
             $stmt->bind_param("s", $username);
             $stmt->execute();

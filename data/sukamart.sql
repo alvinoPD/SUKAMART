@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2026 at 02:59 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Waktu pembuatan: 11 Mar 2026 pada 14.37
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,36 +20,34 @@ SET time_zone = "+00:00";
 --
 -- Database: `sukamart`
 --
-CREATE DATABASE IF NOT EXISTS `sukamart` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `sukamart`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
   `id` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pembayaran`
+-- Struktur dari tabel `pembayaran`
 --
 
 CREATE TABLE `pembayaran` (
   `id` int(11) NOT NULL,
   `id_pesanan` int(11) NOT NULL,
   `id_pembarayan` enum('uang_tunai') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pesanan_ganda`
+-- Struktur dari tabel `pesanan_ganda`
 --
 
 CREATE TABLE `pesanan_ganda` (
@@ -58,41 +56,41 @@ CREATE TABLE `pesanan_ganda` (
   `id_produk` int(11) NOT NULL,
   `kuantitas` int(11) NOT NULL,
   `subtotal` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pesanan_tunggal`
+-- Struktur dari tabel `pesanan_tunggal`
 --
 
 CREATE TABLE `pesanan_tunggal` (
   `id` int(11) NOT NULL,
   `id_pembeli` int(11) NOT NULL,
   `jumlah_total` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produk`
+-- Struktur dari tabel `produk`
 --
 
 CREATE TABLE `produk` (
   `id` int(11) NOT NULL,
-  `nama` int(255) NOT NULL,
+  `nama` text NOT NULL,
   `deskripsi` text NOT NULL,
   `harga` int(11) NOT NULL,
-  `stok` int(11) NOT NULL,
+  `stok` int(11) DEFAULT NULL,
   `image` varchar(255) NOT NULL,
-  `kategori_id` int(11) NOT NULL,
-  `kategori_nama` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `kategori_id` int(11) DEFAULT NULL,
+  `kategori_nama` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -101,87 +99,87 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `nomor_hp` varchar(255) NOT NULL,
   `alamat` text NOT NULL,
-  `role` enum('penjual','pembeli') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `role` enum('user','admin') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `nama` (`nama`);
 
 --
--- Indexes for table `pembayaran`
+-- Indeks untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pesanan_ganda`
+-- Indeks untuk tabel `pesanan_ganda`
 --
 ALTER TABLE `pesanan_ganda`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pesanan_tunggal`
+-- Indeks untuk tabel `pesanan_tunggal`
 --
 ALTER TABLE `pesanan_tunggal`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `produk`
+-- Indeks untuk tabel `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pembayaran`
+-- AUTO_INCREMENT untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pesanan_ganda`
+-- AUTO_INCREMENT untuk tabel `pesanan_ganda`
 --
 ALTER TABLE `pesanan_ganda`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pesanan_tunggal`
+-- AUTO_INCREMENT untuk tabel `pesanan_tunggal`
 --
 ALTER TABLE `pesanan_tunggal`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `produk`
+-- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;

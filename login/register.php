@@ -1,5 +1,5 @@
 <?php 
-include 'config.php'; 
+include '../database/config.php'; 
 
 // Redirect dihilangkan sesuai permintaan user, 
 // agar tetap bisa membuka halaman register meskipun sudah login.
