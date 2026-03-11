@@ -27,12 +27,16 @@ include '../database/config.php';
 <?php include '../part/sidebar.php'; ?>
 
 <main id="main">
-<h1>LOGO</h1>
-<hr>
-<?php
-include '../crud/profil-admin.php';
-?>
-
+<nav>
+    <div class= "teks">
+        <h3 class="foto">LOGO</h3>
+    </div>
+</nav>
+<div class ="isi">
+    <?php
+    include '../crud/profil-admin.php';
+    ?>
+</div>
 </main>
 
 </div>

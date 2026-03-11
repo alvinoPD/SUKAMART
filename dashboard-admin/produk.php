@@ -19,11 +19,13 @@ include '../database/config.php';
         include '../part/sidebar.php';
         ?>
         <main class = "main">
-            <div class="text1">
-                <h3 class="text">Produk anda</h3>
-                <hr>
+            <nav>
+                <div class="text1">
+                    <h3 class="text">Produk anda</h3>
+                    
 
-            </div>
+                </div>
+            </nav>
             <div class ="isi">
                 <?php
                 include '../crud/read-admin.php';
