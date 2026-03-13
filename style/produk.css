@@ -19,7 +19,6 @@ body {
     overflow-x: hidden;
     padding-right: 20px;
     width: calc(100% - 250px);
-   
 }
 
 .isi {
@@ -28,11 +27,18 @@ body {
 .botton-tambah {
    
     border-radius:50% ;
-    position: fixed;
-    z-index: 999;
-    left: 280px;
-    bottom: 30px;
-     text-decoration: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    background-color: blue;
+    margin-left: 20px;
+    margin-top: 5px;
+    border: solid blue 2px;
+    text-align: right;
+    font-size: 10px;
+    /* position: fixed;
+    z-index: 1000; */
 }
 
 .botton-tambah :hover{
