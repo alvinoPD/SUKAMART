@@ -42,16 +42,19 @@ $totalPendapatan = $dataPembayaran['pendapatan'];
             <h4>Total pesanan </h4>
             <i class="fa-solid fa-cart-arrow-down"></i>
             <h5 class="text"><?php echo $totalPesanan;?></h5>
+            <a class="move" href="../crud/dataPesanan.php">lihat detail -></a>
         </div>
         <div class="pendapatan">
             <h4>Total pendapatan </h4>
             <i class="fa-solid fa-money-check-dollar"></i>
             <h5 class="text"><?php echo $totalPendapatan;?></h5>
+            <a class="move" href="../crud/dataPendapatan.php">lihat detail -></a>
         </div>
         <div class="stock">
             <h4>stock </h4>
             <i class="fa-solid fa-boxes-stacked"></i>
             <h5 class="text"><?php echo $stock;?></h5>
+            <a class="move" href="../crud/dataStok.php">lihat detail -></a>
         </div>
     </div>
 </body>
