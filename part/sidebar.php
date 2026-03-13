@@ -17,36 +17,38 @@
      <aside id="sidebar">
         <h2>SUKAMART</h2>
         <hr>
-        <div class = "head-home">
-            <div class="beranda">
-                <div class="home">
-                    <i class="fa-solid fa-house" id="icon-home"></i>
-                    <p>Home</p>
+        <div class = "link">
+            <div class = "head-home">
+                <div class="beranda">
+                    <div class="home">
+                        <i class="fa-solid fa-house" id="icon-home"></i>
+                        <p>Home</p>
+                    </div>
+                <a href="../dashboard-admin/beranda-admin.php">Beranda</a>
                 </div>
-             <a href="../dashboard-admin/beranda-admin.php">Beranda</a>
             </div>
-        </div>
-        <div class ="head-manage">
-            <div class ="manage">
-                <i class="fa-brands fa-buffer" id="icon-manage"></i>
-                <p>Menejemen</p>
-            </div>
-            <div class="profil">
-                <a href="../dashboard-admin/profil.php">Profil</a>
-            </div>
+            <div class ="head-manage">
+                <div class ="manage">
+                    <i class="fa-brands fa-buffer" id="icon-manage"></i>
+                    <p>Menejemen</p>
+                </div>
+                <div class="profil">
+                    <a href="../dashboard-admin/profil.php">Profil</a>
+                </div>
 
-            <div class="produk-side">
-                <a href="../dashboard-admin/produk.php">Produk</a>
-            </div>
+                <div class="produk-side">
+                    <a href="../dashboard-admin/produk.php">Produk</a>
+                </div>
 
-        </div>
-        <div class ="akun-head">
-            <div class= "akun">
-                <i class="fa-solid fa-user" id ="icon-akun"></i>
-                <p>Akun</p>
             </div>
-            <div class="logout">
-                <a href="#">Logout</a>
+            <div class ="akun-head">
+                <div class= "akun">
+                    <i class="fa-solid fa-user" id ="icon-akun"></i>
+                    <p>Akun</p>
+                </div>
+                <div class="logout">
+                    <a href="#">Logout</a>
+                </div>
             </div>
         </div>
     </aside>
