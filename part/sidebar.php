@@ -32,7 +32,7 @@
                 <p>Menejemen</p>
             </div>
             <div class="profil">
-                <a href="../dashboard-admin/profil.php">Profil</a>
+                <a href="../dashboard-admin/profil.php">dashboard</a>
             </div>
 
             <div class="produk-side">
