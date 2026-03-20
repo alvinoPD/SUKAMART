@@ -1,9 +1,13 @@
-<!-- <?php
+ <?php
 include "../database/config.php";
 
-$query = mysqli_query($db,"SELECT * FROM pesanan_ganda, pesanan_tunggal,produk");
-
-$data = mysqli_fetch_assoc($query)
+$query = mysqli_query($db,"
+    SELECT id, id_pembeli, subtotal AS total, 'ganda' AS tipe
+    FROM pesanan_ganda
+    UNION ALL
+    SELECT id, id_pembeli, jumlah_total AS total, 'tunggal' AS tipe
+    FROM pesanan_tunggal
+");
 
 
 ?>
@@ -29,20 +33,17 @@ $data = mysqli_fetch_assoc($query)
   </thead>
   <tbody>
     <?php
-    if($data['jumlah_total'] > 1){
     while($data = mysqli_fetch_assoc($query)){
-
-    
-    ?>
-    <tr>
-      <th scope="row">1</th>
-      <td><?$data['']?></td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <?php}?>
-    <?php}?>
+?>
+<tr>
+  <td><?= $data['id']; ?></td>
+  <td><?= $data['id_pembeli']; ?></td>
+  <td><?= $data['total']; ?></td>
+  <td><?= $data['tipe']; ?></td>
+</tr>
+<?php } ?>
+  
   </tbody>
 </table>
 </body>
-</html> -->
+</html> 
