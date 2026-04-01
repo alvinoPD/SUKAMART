@@ -123,18 +123,7 @@ if(isset($_POST['register'])){
                 <button type="submit" name="register" class="btn-primary">Daftar Sekarang</button>
             </form>
 
-            <div class="social-login-divider">
-                Daftar dengan jejaring sosial Anda.
-            </div>
-            
-            <div class="social-buttons">
-                <a href="#" class="btn-social">
-                    <i class="fa-brands fa-google"></i> Lanjutkan dengan Google
-                </a>
-                <a href="#" class="btn-social">
-                    <i class="fa-brands fa-facebook-f"></i> Lanjutkan dengan Facebook
-                </a>
-            </div>
+
         <?php endif; ?>
     </div>
 

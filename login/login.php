@@ -100,24 +100,10 @@ if(isset($_POST['login'])){
                 <label>
                     <input type="checkbox" name="remember"> Ingat saya
                 </label>
-                <a href="#">Lupa Password</a>
             </div>
 
             <button type="submit" name="login" class="btn-primary">Masuk</button>
         </form>
-
-        <div class="social-login-divider">
-            Masuk dengan jejaring sosial Anda.
-        </div>
-        
-        <div class="social-buttons">
-            <a href="#" class="btn-social">
-                <i class="fa-brands fa-google"></i> Lanjutkan dengan Google
-            </a>
-            <a href="#" class="btn-social">
-                <i class="fa-brands fa-facebook-f"></i> Lanjutkan dengan Facebook
-            </a>
-        </div>
     </div>
 
     <div class="footer-text">
