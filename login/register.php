@@ -60,7 +60,7 @@ if(isset($_POST['register'])){
 </head>
 <body>
     <div class="brand-header">
-        <h1><i class="fa-solid fa-basket-shopping"></i> SUKAMART</h1>
+        <h1><img src="/SUKAMART/assets/img/logo-ungu.png?v=<?php echo time(); ?>" alt="Logo SUKAMART" class="brand-logo"> SUKAMART</h1>
         <h2>Buat akun baru</h2>
         <p>Sudah punya akun? <a href="/SUKAMART/login/login.php">Masuk di sini</a></p>
     </div>
