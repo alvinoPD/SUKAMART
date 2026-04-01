@@ -8,26 +8,29 @@ $error = '';
 $success = '';
 
 if(isset($_POST['register'])){
-    $username = $_POST['nama'];
+    $nama = $_POST['nama'];
+    $email = $_POST['email'];
+    $nomor_hp = $_POST['nomor_hp'];
+    $alamat = $_POST['alamat'];
     $password = $_POST['password'];
 
-    if(empty($username) || empty($password)){
+    if(empty($nama) || empty($email) || empty($nomor_hp) || empty($alamat) || empty($password)){
         $error = "Semua kolom harus diisi!";
     } else {
-        // Cek apakah username sudah ada
-        $stmt_cek = $conn->prepare("SELECT * FROM user WHERE username = ?");
-        $stmt_cek->bind_param("s", $username);
+        // Cek apakah nama atau email sudah ada
+        $stmt_cek = $db->prepare("SELECT * FROM users WHERE nama = ? OR email = ?");
+        $stmt_cek->bind_param("ss", $nama, $email);
         $stmt_cek->execute();
         $result_cek = $stmt_cek->get_result();
 
         if($result_cek->num_rows > 0){
-            $error = "Username sudah dipakai, silakan gunakan yang lain.";
+            $error = "Nama atau Email sudah dipakai, silakan gunakan yang lain.";
         } else {
             // Hash password untuk keamanan
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             
-            $stmt_insert = $conn->prepare("INSERT INTO user (username, password, role) VALUES (?, ?, 'pembeli')");
-            $stmt_insert->bind_param("ss", $username, $hashed_password);
+            $stmt_insert = $db->prepare("INSERT INTO users (nama, email, nomor_hp, alamat, password, role) VALUES (?, ?, ?, ?, ?, 'pembeli')");
+            $stmt_insert->bind_param("sssss", $nama, $email, $nomor_hp, $alamat, $hashed_password);
             
             if($stmt_insert->execute()){
                 $success = "Register berhasil! Silakan <a href='/SUKAMART/login/login.php'>Login</a>.";
@@ -51,89 +54,107 @@ if(isset($_POST['register'])){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" href="/SUKAMART/style/auth.css">
+    <link rel="stylesheet" href="/SUKAMART/style/auth.css?v=<?php echo time(); ?>">
     <!-- Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Animated Background Container -->
-    <div id="vanta-bg" style="position: fixed; z-index: -1; top: 0; left: 0; width: 100%; height: 100%;"></div>
-
-    <div class="auth-container reverse">
-        <div class="auth-card">
-            <div class="auth-header">
-                <h1>SUKAMART</h1>
-                <p>Buat akun baru</p>
-            </div>
-            
-            <?php if($error != ''): ?>
-                <div class="alert alert-error">
-                    <i class="fa-solid fa-circle-exclamation"></i>
-                    <?php echo $error; ?>
-                </div>
-            <?php endif; ?>
-
-            <?php if($success != ''): ?>
-                <div class="alert alert-success">
-                    <i class="fa-solid fa-check-circle"></i>
-                    <?php echo $success; ?>
-                </div>
-            <?php else: ?>
-                <form method="POST" action="/SUKAMART/login/register.php">
-                    <div class="input-group">
-                        <label for="username">Username</label>
-                        <div class="input-wrapper">
-                            <i class="fa-regular fa-user"></i>
-                            <input type="text" id="username" name="username" placeholder="Pilih username" required>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="password">Password</label>
-                        <div class="input-wrapper">
-                            <i class="fa-solid fa-lock"></i>
-                            <input type="password" id="password" name="password" placeholder="Buat password" required>
-                        </div>
-                    </div>
-
-                    <button type="submit" name="register" class="btn-primary">Daftar Sekarang</button>
-                </form>
-            <?php endif; ?>
-
-            <div class="auth-footer">
-                <p>Sudah punya akun? <a href="/SUKAMART/login/login.php">Masuk di sini</a></p>
-            </div>
-        </div>
-        
-        <div class="auth-decoration">
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
-            <div class="glass-info">
-                <h2>Ayo Bergabung!</h2>
-                <p>Dapatkan berbagai promo menarik khusus member baru.</p>
-            </div>
-        </div>
+    <div class="brand-header">
+        <h1><i class="fa-solid fa-basket-shopping"></i> SUKAMART</h1>
+        <h2>Buat akun baru</h2>
+        <p>Sudah punya akun? <a href="/SUKAMART/login/login.php">Masuk di sini</a></p>
     </div>
 
-    <!-- Vanta.js Scripts for Animated Background -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+    <div class="auth-container">
+        <?php if($error != ''): ?>
+            <div class="alert alert-error">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <?php echo $error; ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if($success != ''): ?>
+            <div class="alert alert-success">
+                <i class="fa-solid fa-check-circle"></i>
+                <?php echo $success; ?>
+            </div>
+        <?php else: ?>
+            <form method="POST" action="/SUKAMART/login/register.php">
+                <div class="input-group">
+                    <label for="nama">Nama <span>*</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" id="nama" name="nama" placeholder="" required>
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email <span>*</span></label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" name="email" placeholder="" required>
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="nomor_hp">Nomor Handphone <span>*</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" id="nomor_hp" name="nomor_hp" placeholder="" required>
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="alamat">Alamat Lengkap <span>*</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" id="alamat" name="alamat" placeholder="" required>
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password <span>*</span></label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" name="password" placeholder="" required>
+                        <i class="fa-solid fa-eye-slash" id="togglePassword" style="cursor: pointer;"></i>
+                    </div>
+                </div>
+
+                <button type="submit" name="register" class="btn-primary">Daftar Sekarang</button>
+            </form>
+
+            <div class="social-login-divider">
+                Daftar dengan jejaring sosial Anda.
+            </div>
+            
+            <div class="social-buttons">
+                <a href="#" class="btn-social">
+                    <i class="fa-brands fa-google"></i> Lanjutkan dengan Google
+                </a>
+                <a href="#" class="btn-social">
+                    <i class="fa-brands fa-facebook-f"></i> Lanjutkan dengan Facebook
+                </a>
+            </div>
+        <?php endif; ?>
+    </div>
+
+    <div class="footer-text">
+        © Hak cipta dilindungi oleh SUKAMART.
+    </div>
+
+    <!-- Script to toggle password visibility -->
     <script>
-        VANTA.WAVES({
-            el: "#vanta-bg",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x4f46e5, // Primary indigo color
-            shininess: 30.00,
-            waveHeight: 15.00,
-            waveSpeed: 0.80,
-            zoom: 0.9
-        })
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function (e) {
+            // Toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // Toggle the eye / eye-slash icon
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
     </script>
 </body>
 </html>
