@@ -1,21 +1,3 @@
-<?php
-include '../database/config.php';
-
-$query =  mysqli_query($db,"SELECT
-        (SELECT COUNT(*) FROM pesanan_tunggal) +
-        (SELECT COUNT(*) FROM pesanan_ganda) AS jumlahPesanan");
-
-// $nama = [];
-$stok = [];
-
-while($data = mysqli_fetch_assoc($query)){
-//     $nama[] = $data['id'];
-    $stok[] = $data['jumlahPesanan'];
-}
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,22 +9,43 @@ while($data = mysqli_fetch_assoc($query)){
 </head>
 <body>
 <div id = "chart">
-<canvas id="myChart"></canvas>
+<canvas id="chartPesanan"></canvas>
 
 <script>
-const ctx = document.getElementById('myChart');
 
-new Chart(ctx, {
-    type: 'line', // jenis grafik
-    data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr'],
-        datasets: [{
-            // label: 'Penjualan',
-            data: [10, 20, 15, 30]
-        }]
+fetch("../crud/dataPesananChart.php")
+.then(res => res.json())
+.then(data => {
+
+    const ctx = document.getElementById('chartPesanan');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Total Pesanan:'],
+            datasets: [{
+                label: 'Jumlah Pesanan',
+                data: [data.total_pesanan],
+                borderWidth: 2,
+                tension: 0.3,
+                fill: false
+                
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+    legend: {
+        display: false
     }
+}
+
+            
+        }
+    });
+
 });
-</script>
+
 
 </script>
 </div>
