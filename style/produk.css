@@ -25,21 +25,32 @@ body {
     width: 100%;
 }
 .botton-tambah {
-   
-    border-radius:50% ;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    background-color: blue;
-    margin-left: 20px;
-    margin-top: 5px;
-    border: solid blue 2px;
-    text-align: right;
-    font-size: 10px;
-    position: fixed;
-    z-index: 1000;
-    bottom: 20px;
+   position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: #0d6efd;
+    color: blue ;
+    font-size: 30px;
+    font-weight: bold;
+
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.botton-tambah a{
+    text-decoration: none;
 }
 
 .botton-tambah :hover{
