@@ -16,4 +16,3 @@ if($query){
     echo"gagal hapus".mysqli_error($db);
 }
 ?>
-?>
