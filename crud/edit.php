@@ -23,8 +23,14 @@ $data = mysqli_fetch_assoc($query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style/edit.css">
 </head>
 <body>
+    <nav id = "nav">
+     <a id = "back" href = "../dashboard-admin/produk.php"><i class="fa-solid fa-arrow-left-long"></i></a>
+</nav>
+
     <form action="../crud/update.php" method="POST" enctype="multipart/form-data" class="form-edit">
 
     <!-- ID hidden (penting buat update) -->
