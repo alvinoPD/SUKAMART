@@ -1,6 +1,5 @@
 <?php 
 include '../database/config.php';
-include '../part/nav.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,8 +7,14 @@ include '../part/nav.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tambah</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style/tambah.css">
+
 </head>
+<nav id = "nav">
+     <a id = "back" href = "../dashboard-admin/produk.php"><i class="fa-solid fa-arrow-left-long"></i></a>
+</nav>
 <body>
     <h1>Tambahkan produk anda</h1>
 
