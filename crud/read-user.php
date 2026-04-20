@@ -26,7 +26,7 @@ $query = mysqli_query($db,"SELECT * FROM produk");
         <p><?= $data['deskripsi']; ?></p>
         <p>Stock: <?= $data['stok']; ?></p>
         <button class="beli">
-    <a href="../crud/beli.php?id=<?= $data['id']; ?>"><i class="fa-solid fa-cart-shopping"></i></a>
+    <a href="../beli/beli.php?id=<?= $data['id']; ?>"><i class="fa-solid fa-cart-shopping"></i></a>
 </button>
     </div>
 
