@@ -13,7 +13,7 @@
 
 <script>
 
-fetch("../crud/dataPesananChart.php")
+fetch("../dataAdmin/dataPesananChart.php")
 .then(res => res.json())
 .then(data => {
 
