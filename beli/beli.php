@@ -7,12 +7,15 @@ include '../database/config.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href = "../style/beli.css">
+    <link rel="stylesheet" href="../style/beli.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Document</title>
 </head>
 <body>
-    <form action = "../beli/prosesBeli.php">
-        <?php
+
+<form action="../beli/prosesBeli.php" method="POST">
+
+<?php
 
 // ambil id dari URL
 $id = $_GET['id'] ?? 0;
@@ -28,18 +31,13 @@ if (!$data) {
 
 // contoh hitung total
 $subtotal = $data['harga'];
-$layanan = 1500;
-$total = $subtotal + $layanan;
+$total = $subtotal;
+
 ?>
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Checkout</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<nav id="nav">
+     <a id="back" href="../dashboard-user/beranda-user.php"><i class="fa-solid fa-arrow-left-long"></i></a>
+</nav>
 
 <div class="container">
 
@@ -63,21 +61,16 @@ $total = $subtotal + $layanan;
         <div class="ringkasan">
             <h3>Ringkasan Pesanan</h3>
 
-            <div class="row">
+            <div id="harga" data-harga="<?= $data['harga']; ?>" class="row">
                 <span>Harga produk</span>
                 <span>Rp<?= number_format($data['harga']); ?></span>
             </div>
-
-            <div class="row">
-                <span>Biaya Layanan</span>
-                <span>Rp<?= number_format($layanan,0,',','.'); ?></span>
-            </div>
-
 
             <div class="row total">
                 <span>Total</span>
                 <span>Rp<?= number_format($total,0,',','.'); ?></span>
             </div>
+
         </div>
 
         <!-- Pembayaran -->
@@ -100,16 +93,39 @@ $total = $subtotal + $layanan;
 
 </div>
 
+
+<div id="jumlah">
+
+    <script>
+        let harga = <?php echo $data['harga']; ?>;
+    </script>
+
+    <button type="button" onclick="tambah()">+</button>
+    <h1 id="angka">1</h1>
+    <button type="button" onclick="kurang()">-</button>
+
+
+</div>
+
+<script src="../js/jumlah.js"></script>
+
+
 <!-- Footer -->
 <div class="footer">
     <div class="total-footer">
         <span>Total</span>
-        <strong>Rp<?= number_format($total,0,',','.'); ?></strong>
+        <strong id = "total"><p>Rp</p><?= number_format($total,0,',','.'); ?></strong>
     </div>
-    <button>Buat Pesanan</button>
+    <input type="hidden" name="jumlah" id="jumlahInput" value="1">
+    <input type="hidden" name="id_produk" value="<?= $data['id']; ?>">
+    <input type="hidden" name="harga" value="<?= $data['harga']; ?>">
+    <input type="hidden" name="nama_produk" value="<?= $data['nama']; ?>">
+
+    <button type="submit">Buat Pesanan</button>
+
 </div>
 
-</body>
-</html>
+</form>
+
 </body>
 </html>
