@@ -76,13 +76,13 @@ body {
     padding: 8px;
     border: none;
     border-radius: 6px;
-    background: #10fffb;
+    background: #7a4fa3;
     cursor: pointer;
     transition: 0.2s;
 }
 
 .beli:hover {
-    background: #00aba8;
+    background: #38145b;
 }
 
 .beli a {

@@ -14,14 +14,19 @@ $dataPesanan = mysqli_fetch_assoc($queryPesanan);
 $totalPesanan = $dataPesanan['jumlahPesanan'];
 
 $queryPembayaran = mysqli_query($db, 
-    "SELECT COUNT(id_pembarayan	) AS pendapatan FROM pembayaran"
+    "SELECT SUM(harga) AS total
+FROM (
+    SELECT harga FROM pesanan_tunggal
+    UNION ALL
+    SELECT harga FROM pesanan_ganda
+) AS gabungan"
     
 );
 if (!$queryPembayaran) {
    die("Query Error: " . mysqli_error($db));
 }
 $dataPembayaran = mysqli_fetch_assoc($queryPembayaran);
-$totalPendapatan = $dataPembayaran['pendapatan'];
+$totalPendapatan = $dataPembayaran['total'];
 
 
 
