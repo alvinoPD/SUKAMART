@@ -19,7 +19,7 @@ body{
     overflow-y: auto;
     z-index: 1000;
     width:250px;
-    background:#1e1e2f;
+    background:#1c0431;
     color:white;
     padding-bottom:20px;
     padding-top:20px;
@@ -45,7 +45,7 @@ body{
 }
 
 #sidebar a:hover{
-    background:#3c3c59;
+    background:#43017d;
 }
 
 hr{

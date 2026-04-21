@@ -29,7 +29,7 @@ include '../database/config.php';
 <main id="main">
 <nav>
     <div class= "teks">
-        <h3 class="foto">LOGO</h3>
+        <img class="foto" src = "../asset/logoSUKAMART.png">
     </div>
 </nav>
 <div class ="isi">
