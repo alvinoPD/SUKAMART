@@ -9,7 +9,6 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] != 'pembeli') {
 }
 
 include '../database/config.php';
-include '../part/nav-user.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +19,15 @@ include '../part/nav-user.php';
     <title>Beranda - SUKAMART</title>
 </head>
 <body>
-    <h1>Selamat Datang di SUKAMART, <?php echo $_SESSION['username']; ?>!</h1>
-    
-    <?php
-    // include '../crud/read-user.php'; // Kita matikan dulu sampai file/database ini siap
-    ?>
+    <nav id = "nav">
+        
+    </nav>
 
+    <main>
+    <?php
+    include '../crud/read-user.php';
+    ?>
+    </main>
     <p><a href="../login/logout.php">Logout</a></p>
 </body>
 </html>
