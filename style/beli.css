@@ -8,7 +8,14 @@
 body {
     background: #f5f5f5;
 }
+/* NAV */
 
+#nav{
+    font-size: 30px;
+    margin-top:10px ;
+    margin-bottom:10px ;
+    margin-left: 20px;
+}
 /* CONTAINER */
 .container {
     background: #fff;
@@ -101,6 +108,23 @@ hr {
     width: 18px;
     height: 18px;
     accent-color: #7a4fa3;
+}
+
+/* tobmbol +- */
+#jumlah{
+    
+    gap: 20px;
+    align-items: center;
+    justify-content: left;
+    margin-top: 30px;
+    display: flex;
+    padding-left:600px ;
+    padding-right: 600px;
+    margin-left: 500px;
+}
+
+#total{
+    display: flex;
 }
 
 /* FOOTER */
