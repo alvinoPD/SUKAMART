@@ -2,11 +2,9 @@
 include "../database/config.php";
 
 $query = mysqli_query($db,"
-    SELECT id, id_pembeli, subtotal AS total, 'ganda' AS tipe
-    FROM pesanan_ganda
+    SELECT id,nama_produk,kuantitas,harga FROM pesanan_tunggal AS total
     UNION ALL
-    SELECT id, id_pembeli, jumlah_total AS total, 'tunggal' AS tipe
-    FROM pesanan_tunggal
+    SELECT id,nama_produk,kuantitas,harga FROM pesanan_ganda AS total
 ");
 
 
@@ -37,9 +35,9 @@ $query = mysqli_query($db,"
 ?>
 <tr>
   <td><?= $data['id']; ?></td>
-  <td><?= $data['id_pembeli']; ?></td>
-  <td><?= $data['total']; ?></td>
-  <td><?= $data['tipe']; ?></td>
+  <td><?= $data['nama_produk']; ?></td>
+  <td><?= $data['kuantitas']; ?></td>
+  <td><?= $data['harga']; ?></td>
 </tr>
 <?php } ?>
   
