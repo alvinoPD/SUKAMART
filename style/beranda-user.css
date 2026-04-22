@@ -1,0 +1,69 @@
+body {
+    overflow-x: hidden;
+}
+
+.text{
+    
+    margin-top: 10px;
+    margin-left:30px;
+    margin-bottom:20px;
+
+}
+.text1{
+    margin-bottom:20px;
+
+}
+
+.main {
+    margin-left: 250px;
+    overflow-x: hidden;
+    padding-right: 20px;
+    width: calc(100% - 250px);
+}
+
+.isi {
+    width: 100%;
+}
+.botton-tambah {
+   position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: #0d6efd;
+    color: blue ;
+    font-size: 30px;
+    font-weight: bold;
+
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.botton-tambah a{
+    text-decoration: none;
+}
+
+.botton-tambah :hover{
+   /* font-size: 50px;*/
+   transition:0.3s ; 
+   color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr{
+    width: 100%;
+    border: 1px solid black;
+}
