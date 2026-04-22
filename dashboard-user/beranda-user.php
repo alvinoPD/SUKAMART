@@ -1,9 +1,14 @@
 <?php
 session_start();
 
-// go
+// if (!isset($_SESSION['username']) || $_SESSION['role'] != 'pembeli') {
+//     header("Location: ../login/login.php");
+//     exit();
+// }
+
 include '../database/config.php';
-git
+
+// ✅ FIX: Pastikan $uid diambil dari session dengan benar
 $uid = (int)$_SESSION['id'];
 ?>
 <!DOCTYPE html>
@@ -127,4 +132,3 @@ $uid = (int)$_SESSION['id'];
 
 </body>
 </html>
-
