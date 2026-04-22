@@ -27,6 +27,7 @@ if(isset($_POST['login'])){
                 
                 // Mendukung password_verify (hashed) atau fallback teks biasa (untuk data lama)
                 if(password_verify($password, $data['password']) || $password === $data['password']){
+                    $_SESSION['id'] = $data['id'];
                     $_SESSION['username'] = $data['nama'];
                     $_SESSION['role'] = $data['role'];
 

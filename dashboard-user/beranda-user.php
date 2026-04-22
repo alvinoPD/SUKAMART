@@ -10,6 +10,10 @@ include '../database/config.php';
 
 // ✅ FIX: Pastikan $uid diambil dari session dengan benar
 $uid = (int)$_SESSION['id'];
+$q_user = mysqli_query($db, "SELECT * FROM users WHERE id = $uid");
+$user = mysqli_fetch_assoc($q_user);
+
+$nama_user = $user['nama'];
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -36,7 +40,12 @@ $uid = (int)$_SESSION['id'];
             <i class="fa-solid fa-cart-shopping"></i>
             <?php
             // ✅ FIX: Gunakan $uid yang sudah benar di atas
-            $q = mysqli_query($db, "SELECT SUM(kuantitas) as total FROM pesanan_ganda WHERE id_pembeli = $uid");
+            $q = mysqli_query($db, "
+            SELECT 
+            (SELECT IFNULL(SUM(kuantitas),0) FROM pesanan_ganda WHERE nama_pembeli = '$nama_user') +
+            (SELECT IFNULL(SUM(kuantitas),0) FROM pesanan_tunggal WHERE nama_pembeli = '$nama_user')
+            AS total
+            ");
             $row = mysqli_fetch_assoc($q);
             $total_cart = $row['total'] ?? 0;
             if ($total_cart > 0): ?>
@@ -76,56 +85,10 @@ $uid = (int)$_SESSION['id'];
         <?php $i++; endwhile; ?>
     </aside>
 
-    <!-- Grid Produk -->
-    <main class="main-content">
-        <?php
-        $where = "WHERE 1=1";
-        if ($cat_aktif != 'all') {
-            $cat_aktif_int = (int)$cat_aktif;
-            $where .= " AND kategori_id = $cat_aktif_int";
-        }
-        if (!empty($search)) {
-            $search_safe = mysqli_real_escape_string($db, $search);
-            $where .= " AND (nama LIKE '%$search_safe%' OR deskripsi LIKE '%$search_safe%')";
-        }
-
-        $q_produk = mysqli_query($db, "SELECT * FROM produk $where ORDER BY id DESC");
-        $jumlah = mysqli_num_rows($q_produk);
+    <main>
+        <?php include '../crud/read-user.php';
+        
         ?>
-
-        <?php if ($jumlah == 0): ?>
-            <div class="empty-state">
-                <i class="fa-solid fa-box-open"></i>
-                <p>Produk tidak ditemukan.</p>
-            </div>
-        <?php else: ?>
-        <div class="product-grid">
-            <?php while ($p = mysqli_fetch_assoc($q_produk)): ?>
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="../uploads/<?php echo htmlspecialchars($p['image']); ?>" alt="<?php echo htmlspecialchars($p['nama']); ?>">
-                </div>
-                <div class="product-info">
-                    <div class="product-name"><?php echo htmlspecialchars($p['nama']); ?></div>
-                    <div class="product-price">Rp <?php echo number_format($p['harga'], 0, ',', '.'); ?></div>
-                    <div class="product-stock">Stok: <?php echo $p['stok']; ?></div>
-                    <div class="product-actions">
-                        <form method="POST" action="keranjang-user.php">
-                            <input type="hidden" name="id_produk" value="<?php echo $p['id']; ?>">
-                            <input type="hidden" name="aksi" value="tambah">
-                            <button type="submit" class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Keranjang</button>
-                        </form>
-                        <form method="POST" action="keranjang-user.php">
-                            <input type="hidden" name="id_produk" value="<?php echo $p['id']; ?>">
-                            <input type="hidden" name="aksi" value="beli_langsung">
-                            <button type="submit" class="btn-buy">Beli</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <?php endwhile; ?>
-        </div>
-        <?php endif; ?>
     </main>
 
 </div>

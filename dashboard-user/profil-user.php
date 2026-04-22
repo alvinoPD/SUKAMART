@@ -67,8 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['aksi']) && $_POST['aks
 // Ambil jumlah item keranjang untuk badge
 $total_cart = 0;
 if ($uid > 0) {
-    $qc = mysqli_query($db, "SELECT SUM(kuantitas) as total FROM pesanan_ganda WHERE id_pembeli = $uid");
-    $rc = mysqli_fetch_assoc($qc);
+    $q_user = mysqli_query($db, "SELECT * FROM users WHERE id = $uid");
+    $user = mysqli_fetch_assoc($q_user);
     $total_cart = $rc['total'] ?? 0;
 }
 
