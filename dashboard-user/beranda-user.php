@@ -128,4 +128,3 @@ $uid = (int)$_SESSION['id'];
 </body>
 </html>
 
-<!-- FIKS LANCAR -->
