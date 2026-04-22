@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +50,7 @@
                 <p>Akun</p>
             </div>
             <div class="logout">
-                <a href="#">Logout</a>
+                <a href="../login/logout.php">Logout</a>
             </div>
         </div>
     </aside>
