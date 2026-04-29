@@ -25,7 +25,7 @@ include '../database/config.php';
         <main class="main">
             <nav>
                 <div class="teks">
-                    <img class ="poto" src = "../asset/logoSUKAMART.png" alt="bg">
+                    <img class="foto" src = "../asset/logoSUKAMART.png">
                 </div>
             </nav>
             <?php
